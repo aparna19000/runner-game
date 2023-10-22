@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity environment="preset:forest; playArea:4; lightPosition: 0 1000 0;"  animation="property: position; from: 0 0 0; to: 0 0 50; easing: linear; loop: true; dur:5000;"></a-entity>
+      <a-entity id="dirlight" light="type:directional; intensity: 0.3" position="40 50 40"></a-entity>
+      <a-camera position="0 2 8">
+        <a-entity id="character" position="0 -1.9 -3" scale="2 2 2" rotation="0 180 0" shadow="receive: true">  
+          <a-entity position="0 0.37 0" id="head" animation="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+            <a-box id="face" color="#ffd294" depth="0.23" height="0.16" width="0.23"></a-box>
+            <a-box id="helmet" position="0 0.05 0" color="#a34f00" depth="0.22" height="0.2" width="0.22"></a-box>
+            <a-box id="helmet-edge-1" position="0 0.07 0" color="#586579" depth="0.29" height="0.04" width="0.29"></a-box>
+            <a-box id="helmet-edge-2" position="0 0.07 0.02" color="#586579" depth="0.24" height="0.2" width="0.04"></a-box>
+            <a-box id="horns" position="0 0.13 0" color="#e5e8ce" depth="0.03" height="0.03" width="0.3">
+              <a-box position="0.15 0.026 0" color="#e5e8ce" depth="0.03" height="0.08" width="0.03"></a-box>
+              <a-box position="-0.15 0.026 0" color="#e5e8ce" depth="0.03" height="0.08" width=" 0.03"></a-box>
+            </a-box>
+            <a-box id="hair" position="0 0 -0.05" color=" #630356" depth=" 0.131" height="0.16" width=" 0.231"></a-box>
+            <a-cylinder id="right-eye" color=" #ee7272" height="0.12" radius="0.02" rotation="0 90 90" position="0.06 0 0.06" geometry="thetaLength:180;"></a-cylinder>
+            <a-cylinder id="left-eye" color=" #ee7272" height="0.12" radius="0.02" rotation="0 90 90" position="-0.06 0 0.06" geometry="thetaLength:180;"></a-cylinder>
+            <a-box id="mouth" color="#d55d5d" depth="0.17" height="0.03" width="0.1" position="0 -0.05 0.032"></a-box>
+          </a-entity>
+          <a-box id="body" color=" #8a3e00" depth=" 0.18" height="0.17" width=" 0.17" position="0 0.194 0" animation="property: rotation; from: 0 10 0; to: 0 -10 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+            <a-entity id="right-arm" position="0.12 0.05 0" animation="property: rotation; from: 10 0 0; to: -60 0 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+              <a-sphere color=" #585965" radius="0.05" position="0 0 0" rotation="0 0 0">
+                <a-box depth=" 0.04" height="0.16" width=" 0.04" position="0 -0.07935 0"></a-box>
+                <a-box color=" #7f4e0b" depth=" 0.05" height="0.01" width=" 0.05" position="0 -0.11892 0"></a-box>
+              </a-sphere>
+            </a-entity>
+            <a-entity id="right-leg" position="0.06 -0.1 0" animation="property: rotation; from: -60 0 0; to: 10 0 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+              <a-box depth=" 0.04" height="0.2" width=" 0.04" position="0 -0.05 0" scale="1 0.81 1">
+                <a-box color=" #640c0c" depth=" 0.04" height="0.05" width=" 0.04" position="0 -0.12 0"></a-box>
+              </a-box>
+            </a-entity>
+            <a-entity id="left-arm" position="-0.12 0.05 0" animation="property: rotation; from: -60 0 0; to: 10 0 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+              <a-sphere color=" #585965" radius="0.05" position="0 0 0" rotation="0 0 0">
+                <a-box depth="0.04" height="0.16" width="0.04" position="0 -0.07935 0"></a-box>
+                <a-box color="#7f4e0b" depth="0.05" height="0.01" width="0.05" position="0 -0.11892 0"></a-box>
+              </a-sphere>
+            </a-entity>
+            <a-entity id="left-leg" position="-0.06 -0.1 0" animation="property: rotation; from: 10 0 0; to: -60 0 0; dir: alternate; loop: true; easing: linear; dur: 250;">
+              <a-box depth=" 0.04" height="0.2" width=" 0.04" position="0 -0.05 0" scale="1 0.81 1">
+                <a-box color=" #640c0c" depth="0.04" height="0.05" width=" 0.04" position="0 -0.12 0"></a-box>
+              </a-box>
+            </a-entity>
+          </a-box>
+        </a-entity>
+      </a-camera>
+      <!--Road-->
+      <a-entity id="right-strip" position="4 0.001 -3">
+        <a-box scale="0.2 1 100" color="yellow" depth="1" width="2" height="0"></a-box>
+      </a-entity>
+      <a-entity id="left-strip" position="-4 0.001 -3">
+        <a-box scale="0.2 1 100" color="yellow" depth="1" width="2" height="0"></a-box>
+      </a-entity>
+      <a-entity position="-3 0.2 1" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="4 0.2 -19" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="3 0.2 -9" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="2 0.2 -5" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="-3 0.2 -3" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="1 0.2 -9" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="-2 0.2 2" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="-3 0.2 3" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="1 0.2 -11" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+      <a-entity position="-2 0.2 -13" shadow="receive: true">
+        <a-icosahedron color="#c25656" radius="0.3" animation="property: position; from: 0 0 -11; to: 0 0 9; easing: linear; loop: true;  dur:2500;"></a-icosahedron>
+      </a-entity>
+        
+      <a-entity id="left-montains" position="-4 0 0" animation="property: position; from:-4 0 0; to: -4 0 50; dur: 5000; loop: true; easing: linear;">
+        <a-entity position="-15 0 -10" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -30" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -50" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -70" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -90" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -110" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+      </a-entity>
+      <a-entity id="right-montains" position="34 0 0" animation="property: position; from:34 0 0; to: 34 0 50; dur: 5000; loop: true; easing: linear;">
+        <a-entity position="-15 0 -10" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -30" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -50" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -70" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -90" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+        <a-entity position="-15 0 -110" scale="4 4 4">
+          <a-cone color="brown" height="4" radius-bottom="2" radius-top="0" segments-Radial= "4" position="0 2.01 0"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" segments-Radial= "4" position="0 1.5 1.4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.8" radius-top="0.1" position="0 1.5 -1.4" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1.6" radius-top="0.1" position="0 1 -2.8" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="1 1.27 -0.5" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="2" radius-bottom="1" radius-top="0.1" position="-1.3 1 -2.3" segments-Radial= "4"></a-cone>
+          <a-cone color="brown" height="3" radius-bottom="1.5" radius-top="0.1" position="-1 1.3 -0.5" segments-Radial= "4"></a-cone>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
